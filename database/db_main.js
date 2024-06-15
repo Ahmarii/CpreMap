@@ -2,6 +2,7 @@ const fs = require('fs');
 const { Client } = require('pg');
 
 // console.log(process.env.db_cd)
+console.log(process.env)
 
 // PostgreSQL connection configuration
 const config = {
@@ -12,7 +13,7 @@ const config = {
     database: "maindb",
     ssl: {
         rejectUnauthorized: true,
-        ca: process.env,
+        ca: process.env.db_cd,
     },
 };
 
