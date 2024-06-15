@@ -1,16 +1,18 @@
 const fs = require('fs');
 const { Client } = require('pg');
 
+// console.log(process.env.db_cd)
+
 // PostgreSQL connection configuration
 const config = {
     user: "avnadmin",
-    password: process.env.db_password,
-    host: process.env.host_name,
+    password: process.env.password,
+    host: process.host_name,
     port: 14871,
-    database: "defaultdb",
+    database: "maindb",
     ssl: {
         rejectUnauthorized: true,
-        ca: process.env.db_cd,
+        ca: process.env,
     },
 };
 
@@ -38,16 +40,16 @@ async function closedb(db) {
 
 
 async function test() {
-    await db.query(`SELECT * FROM public.username_password WHERE username = 'karn'`, (err, res) => {
+    await db.query(`SELECT * FROM public.username_password WHERE username = 'slim'`, (err, res) => {
         if (err) {
-            console.err(err)
+            console.error(err)
         } else {
             console.log(res.rows)
         }
     })
 }
 
-
+// test()
 
 module.exports = {
     db,
