@@ -2,7 +2,17 @@ const fs = require('fs');
 const { Client } = require('pg');
 
 // PostgreSQL connection configuration
-const config = {};
+const config = {
+    user: "avnadmin",
+    password: process.env.db_password,
+    host: process.env.host_name,
+    port: 14871,
+    database: "defaultdb",
+    ssl: {
+        rejectUnauthorized: true,
+        ca: process.env.db_cd,
+    },
+};
 
 (async function initializeDatabase() {
     db = new Client(config);
