@@ -8,7 +8,7 @@ console.log(process.env)
 const config = {
     user: "avnadmin",
     password: process.env.password,
-    host: process.host_name,
+    host: process.env.host_name,
     port: 14871,
     database: "maindb",
     ssl: {
