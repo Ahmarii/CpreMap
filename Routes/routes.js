@@ -5,7 +5,7 @@ const { ensureAuthenticated, register, authenticatedUser } = require('../login_s
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('helooooooooooo');
+    res.send('cpre888 บิดแล้วรวยซวยแล้วมึง');
 });
 
 router.get('/profile', ensureAuthenticated, async (req, res) => {
